@@ -5,11 +5,11 @@ export default function Form() {
 
     return (
         <div>
-            <header className="flex flex-col items-center justify-center text-black">
+            <header className="flex flex-col items-center justify-center text-white">
                 <p>Canvas Extension</p>
             </header>
 
-            <div className="flex flex-col items-center justify-center text-black">
+            <div className="flex flex-col items-center justify-center text-white">
                 Enter your access key and press the button below to scrape your courses
             </div>
 
