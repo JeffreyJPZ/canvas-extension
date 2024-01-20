@@ -2,7 +2,7 @@ import logo from "@assets/img/logo.svg";
 
 export default function Logo() {
     return (
-        <div>
+        <div className="flex flex-col items-center justify-center">
             <img src={logo} className="h-36 pointer-events-none animate-spin-slow" alt="logo" />
         </div>
     )
