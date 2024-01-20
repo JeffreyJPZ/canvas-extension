@@ -1,19 +1,22 @@
-import ScrapeButton from '@pages/popup/ScrapeButton';
 import Form from "@pages/popup/Form";
 import Logo from "@pages/popup/Logo";
 
 export default function Popup() {
 
-    // scrapes canvas page and retrieves results when scrape button is clicked
-    function scrape() {
-        alert("hi");
+    // scrapes canvas page using key and retrieves results when scrape button is clicked
+    async function scrape(key : string) {
+        try {
+            await chrome.runtime.sendMessage({type: "scrape", data: key});
+            // need to assign promise to response and send response to some page
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     return (
         <div className="absolute top-0 left-0 right-0 bottom-0 text-center h-full p-3 bg-gray-800">
             <Logo/>
-            <Form/>
-            <ScrapeButton scrape={scrape}/>
+            <Form handleScrape={scrape}/>
         </div>
     );
 }
