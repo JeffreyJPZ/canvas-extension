@@ -19,14 +19,12 @@
     "128": "icon-128.png"
   },
   "permissions": [
-    "activeTab"
+    "activeTab", "scripting"
   ],
   "content_scripts": [
     {
       "matches": [
-        "http://*/*",
-        "https://*/*",
-        "<all_urls>"
+        "https://canvas.ubc.ca/*"
       ],
       "js": [
         "src/pages/content/index.tsx"
