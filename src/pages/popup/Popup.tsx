@@ -7,7 +7,7 @@ export default function Popup(): JSX.Element {
       <header className="flex flex-col items-center justify-center text-white">
         <img src={logo} className="h-36 pointer-events-none animate-spin-slow" alt="logo" />
         <p>
-          Edit <code>src/pages/popup/Popup.jsx</code> and save to reload.
+          Edit <code>src/pages/popup/Popup.jsx</code> and save to reload. Hi
         </p>
         <a
           className="text-blue-400"
