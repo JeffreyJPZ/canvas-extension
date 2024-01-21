@@ -17,10 +17,7 @@ async function handleMessage(message: { data: string; }) {
     if (typeof tab.id === "number") {
         await chrome.scripting.executeScript({
             target: {tabId: tab.id},
-            func: () => {
-
-                document.body.appendChild(document.createElement('div'));
-            }
+            func: () => {console.log("hi")}
         })
     }
 
