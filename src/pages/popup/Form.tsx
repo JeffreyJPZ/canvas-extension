@@ -9,6 +9,9 @@ import './Form.css';
 
 const theme = createTheme({
     palette: {
+      primary: {
+        main: '#000000',
+      },
       secondary: {
         main: '#CF4D4D',
       }
@@ -22,7 +25,7 @@ export default function Form(props: { handleScrape: (arg0: string) => void; }) {
         <ThemeProvider theme={theme}>
         <div>
             <header className="flex flex-col items-center justify-center text-white text-2xl">
-                <p>Canvas Extension</p>
+                <p>Canvify</p>
             </header>
 
             <br></br>
@@ -39,15 +42,15 @@ export default function Form(props: { handleScrape: (arg0: string) => void; }) {
                 <input type="text" value={key} onChange={e => setKey(e.target.value)}/>
             </div> */}
 
-            <TextField color="warning" fullWidth id="outlined-basic" label="Enter Key" variant="outlined" 
-            onChange={e => setKey(e.target.value)} margin="dense" style={{
+            <TextField margin="dense" color="primary" fullWidth id="margin-dense filled-basic" label="Enter Key" variant="filled" 
+            onChange={e => setKey(e.target.value)} style={{
                 borderColor: 'white', // Set the outline color to white
-                margin: '0 8px',      // Add left and right margins
+                margin: '15 0px',      // Add left and right margins
               }}/>
 
             <br></br>
 
-            <Button variant="contained" onClick={() => props.handleScrape(key)} 
+            <Button variant="contained" className="mt-2.5" onClick={() => props.handleScrape(key)} 
                     color="secondary">
                         Fetch
             </Button>
