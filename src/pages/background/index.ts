@@ -10,14 +10,17 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 
 // Fetches data from OpenAI api and returns the course data
 async function handleMessage(message: { data: string; }) {
-    const data = {course: "cpsc_213"} // stub, fetch data from OpenAI
+    const data = {course: "cpsc_213"} // stub, fetch data from OpenAI using message.data (key)
     const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
 
     // check if active tab has an id
     if (typeof tab.id === "number") {
         await chrome.scripting.executeScript({
             target: {tabId: tab.id},
-            func: () => {console.log("hi")}
+            func: () => {
+
+                document.body.appendChild(document.createElement('div'));
+            }
         })
     }
 
