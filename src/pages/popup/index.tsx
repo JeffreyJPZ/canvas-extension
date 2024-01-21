@@ -30,6 +30,10 @@ function init() {
   const root = createRoot(rootContainer);
   root.render(<Popup />);
 
+  const params = {
+    state: ["available"]
+  }
+  // Make a GET request to the Canvas API to retrieve a list of courses
   // const params = {
   //   state: ["available"]
   // }
@@ -38,7 +42,6 @@ function init() {
   //   .then((response: AxiosResponse) => {
   //     // Handle the response data
   //     courses = response.data;
-  //
   //     // Iterate over each course and call the processQuizzes function
   //     if (typeof courses === 'string') {
   //       courseArray = JSON.parse(courses);
@@ -55,6 +58,10 @@ function init() {
   //         courseArray = courseArray.filter(item => item !== course);
   //       }
   //     })
+  //     console.log('Courses:', courseArray); 
+  //     courseArray.forEach((course: any) => {
+  //       //processAssignments(course.id);
+  //     })
   //     console.log('Courses:', courseArray);
   //     courseArray.forEach((course: any) => {
   //       //processAssignments(course.id);
@@ -65,7 +72,8 @@ function init() {
   //     // Handle errors
   //     console.error('Error:', error.message);
   //   });
-  //   processMod();
+    // processMod();
+
 }
 
 // function processMod() {
@@ -75,6 +83,7 @@ function init() {
 //       console.log('Course Guide:', page);
 //     })
 // }
+
 
 // function processAssignments(courseId: number) {
 //   axios.get(`${coursesEndpoint}/${courseId}/assignments?per_page=100`, { headers })
