@@ -21,6 +21,7 @@ const theme = createTheme({
 export default function Form(props: { handleScrape: (arg0: string) => void; }) {
     const [key, setKey] = useState("");
 
+
     return (
         <ThemeProvider theme={theme}>
         <div>
@@ -29,7 +30,6 @@ export default function Form(props: { handleScrape: (arg0: string) => void; }) {
             </header>
 
             <br></br>
-
             <div className="flex flex-col items-center justify-center text-white">
                 <p>Enter your access token and press the button below to scrape your courses</p>
                 <p className='italic'>Profile -&gt; Settings -&gt; New Access Token</p>
