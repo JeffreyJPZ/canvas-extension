@@ -1,4 +1,16 @@
 import {useState} from "react";
+import * as React from 'react';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import createTheme from "@mui/system/createTheme";
+
+const theme = createTheme({
+    palette: {
+      secondary: {
+        main: '#CF4D4D'
+      }
+    }
+  });
 
 export default function Form(props: { handleScrape: (arg0: string) => void; }) {
     const [key, setKey] = useState("");
@@ -23,9 +35,14 @@ export default function Form(props: { handleScrape: (arg0: string) => void; }) {
 
             <br></br>
 
-            <button onClick={() => props.handleScrape(key)} className="bg-red-500 outline outline-1 text-white">
-                Scrape
-            </button>
+            <Button variant="contained" onClick={() => props.handleScrape(key)} 
+                    color="secondary">
+                        Fetch
+            </Button>
+
+            {/* <button onClick={() => props.handleScrape(key)} className="bg-red-500 outline outline-1 text-white">
+                Fetch
+            </button> */}
 
         </div>
     )
