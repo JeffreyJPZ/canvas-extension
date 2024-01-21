@@ -78,6 +78,6 @@ async function handleMessage(message: { data: string; }) {
     } catch (err) {
         console.log(err);
     }
-
+    }
     return message.data;
 }
