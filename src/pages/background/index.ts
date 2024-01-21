@@ -32,6 +32,15 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 
 // Fetches data from Canvas API and returns the course data
 async function handleMessage(message: { data: string; }) {
+    const data = {course: "cpsc_213"} // stub, fetch data from OpenAI using message.data (key)
+    const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+
+    // check if active tab has an id
+    if (typeof tab.id === "number") {
+        await chrome.scripting.executeScript({
+            target: {tabId: tab.id},
+            func: () => {console.log("hi")}
+        })
     try {
         const config = {
             method: 'get',

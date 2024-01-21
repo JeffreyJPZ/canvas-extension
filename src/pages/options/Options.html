@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Options</title>
+        <link rel="stylesheet" href="options.css">
+    </head>
+
+    <body>
+        <div id="__root">
+            <h1 id="optionsTitle">OpenAI Access Key</h1>
+            <p id="apiTitle">Check OpenAI for instructions</p>
+            <div id="input-container">
+                <input type="text" id="apiKey">
+                <button id="save-button" title="Save API key">
+                    <i class="fa fa-save"></i>
+                    <span id="save-button-text">Submit access key</span>
+                </button>
+                
+            </div>
+            <p id="status-message"></p>
+            <p id="api-key-note" class="note"></p>
+        </div>
+        <script type="module" src="./index.tsx"></script>
+    </body>
+</html>

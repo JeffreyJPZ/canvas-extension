@@ -20,25 +20,11 @@ export default function Popup() {
     
   }
 
-  return (
-    <Router>
-      <div className="absolute top-0 left-0 right-0 bottom-0 text-center h-full p-3 bg-gray-800">
-        <Routes>
-        <Route path="/other-page" Component={MainPage}>
-            <Logo />
+    return (
+        <div className="rounded-lg absolute top-0 left-0 right-0 bottom-0 text-center h-full p-3 bg-background pt-5">
+            <Logo/>
             <br></br>
-            <Form handleScrape={scrape} />
-          </Route>
-        </Routes>
-      </div>
-    </Router>
-  );
-
-//   return (
-//     <div className="absolute top-0 left-0 right-0 bottom-0 text-center h-full p-3 bg-gray-800">
-//       <Logo />
-//       <br></br>
-//       <Form handleScrape={scrape} />
-//     </div>
-//   );
+            <Form handleScrape={scrape}/>
+        </div>
+    );
 }
