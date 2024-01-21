@@ -3,6 +3,7 @@
     "target": "esnext",
     "types": ["vite/client", "node", "chrome"],
     "lib": ["dom", "dom.iterable", "esnext"],
+    "noImplicitAny": false,
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
