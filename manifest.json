@@ -18,8 +18,11 @@
   "icons": {
     "128": "icon-128.png"
   },
+  "host_permissions": [
+    "https://canvas.ubc.ca/*"
+  ],
   "permissions": [
-    "activeTab", "scripting"
+    "tabs", "scripting"
   ],
   "content_scripts": [
     {
