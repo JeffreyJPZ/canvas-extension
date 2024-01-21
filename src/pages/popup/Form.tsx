@@ -1,4 +1,5 @@
 import {useState} from "react";
+import { Link } from "react-router-dom";
 
 export default function Form(props: { handleScrape: (arg0: string) => void; }) {
     const [key, setKey] = useState("");
@@ -18,9 +19,11 @@ export default function Form(props: { handleScrape: (arg0: string) => void; }) {
                 <input type="text" value={key} onChange={e => setKey(e.target.value)}/>
             </div>
             <br></br>
-            <button onClick={() => props.handleScrape(key)} className="bg-red-500 outline outline-1 text-black">
-                Scrape
-            </button>
+            <Link to="@pages/mainpage">
+                <button onClick={() => props.handleScrape(key)} className="bg-red-500 outline outline-1 text-black">
+                    Scrape
+                </button>
+            </Link>
 
         </div>
     )
