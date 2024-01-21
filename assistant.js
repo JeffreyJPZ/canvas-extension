@@ -8,17 +8,18 @@ const openai = new OpenAI({
 const file_ids = ["file-ig6JY3D92jSEjuE20CGt4s7z"];
 var assistant_id = "asst_N15URoUR5lJr8uZ0s9mJrR5V";
 
+
 async function createAssistant() {
     const myAssistant = await openai.beta.assistants.create({
         instructions:
-            "You are a personal math tutor. When asked a question, write and run Python code to answer the question.",
-        name: "Math Tutor",
+            "You are a smart personal assistant for university students. You will use available information like course syllabi to answer their questions about their courses. Be accurate and concise.",
+        name: "Canvas Assistant",
         tools: [{ type: "retrieval" }],
         model: "gpt-4-1106-preview",
         file_ids: file_ids,
     });
 
-    console.log(myAssistant);
+    // console.log(myAssistant);
     assistant_id = myAssistant.id;
 }
 
@@ -32,7 +33,7 @@ async function updateAssistant() {
       }
     );
   
-    console.log(myUpdatedAssistant);
+    // console.log(myUpdatedAssistant);
   }
 
 async function uploadFile(file_path) {
@@ -41,7 +42,7 @@ async function uploadFile(file_path) {
         purpose: "assistants",
     });
 
-    console.log(file);
+    // console.log(file);
     file_ids.push(file.id)
 }
 
@@ -50,7 +51,9 @@ async function createThreadRun() {
         assistant_id: assistant_id,
         thread: {
             messages: [
-                { role: "user", content: "how am i graded?" },
+                { role: "user", content: "Use this information from the course to answer questions: " + "" +
+                "Tell me about: grading scheme, important dates (exam dates, assignment deadlines), professor & TA contacts (give name and method of contact), " + 
+                "Gen AI usage guidelines, time of office hours. If any information is unavailabe from given context, ignore it."},
             ],
         },
     });
