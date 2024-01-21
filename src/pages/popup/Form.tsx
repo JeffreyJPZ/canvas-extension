@@ -19,11 +19,9 @@ export default function Form(props: { handleScrape: (arg0: string) => void; }) {
                 <input type="text" value={key} onChange={e => setKey(e.target.value)}/>
             </div>
             <br></br>
-            <Link to="@pages/mainpage">
                 <button onClick={() => props.handleScrape(key)} className="bg-red-500 outline outline-1 text-black">
                     Scrape
                 </button>
-            </Link>
 
         </div>
     )

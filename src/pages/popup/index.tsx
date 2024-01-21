@@ -33,38 +33,38 @@ function init() {
     state: ["available"]
   }
   // Make a GET request to the Canvas API to retrieve a list of courses
-  axios.get(`${coursesEndpoint}?per_page=100`, { headers, params })
-    .then((response: AxiosResponse) => {
-      // Handle the response data
-      courses = response.data;
+  // axios.get(`${coursesEndpoint}?per_page=100`, { headers, params })
+  //   .then((response: AxiosResponse) => {
+  //     // Handle the response data
+  //     courses = response.data;
 
-      // Iterate over each course and call the processQuizzes function
-      if (typeof courses === 'string') {
-        courseArray = JSON.parse(courses);
-      } else if (Array.isArray(courses)) {
-        // If apiResponse is already an array, use it directly
-        courseArray = courses;
-      } else {
-        // Handle other cases or throw an error if the data is unexpected
-        throw new Error('Unexpected data format');
-      }
-      courseArray.forEach((course: any) => {
-        //processQuizzes(course.id);
-        if (course.access_restricted_by_date == true) {
-          courseArray = courseArray.filter(item => item !== course);
-        }
-      })
-      console.log('Courses:', courseArray); 
-      courseArray.forEach((course: any) => {
-        //processAssignments(course.id);
-      })
+  //     // Iterate over each course and call the processQuizzes function
+  //     if (typeof courses === 'string') {
+  //       courseArray = JSON.parse(courses);
+  //     } else if (Array.isArray(courses)) {
+  //       // If apiResponse is already an array, use it directly
+  //       courseArray = courses;
+  //     } else {
+  //       // Handle other cases or throw an error if the data is unexpected
+  //       throw new Error('Unexpected data format');
+  //     }
+  //     courseArray.forEach((course: any) => {
+  //       //processQuizzes(course.id);
+  //       if (course.access_restricted_by_date == true) {
+  //         courseArray = courseArray.filter(item => item !== course);
+  //       }
+  //     })
+  //     console.log('Courses:', courseArray); 
+  //     courseArray.forEach((course: any) => {
+  //       //processAssignments(course.id);
+  //     })
 
-    })
-    .catch((error) => {
-      // Handle errors
-      console.error('Error:', error.message);
-    });
-    processMod();
+  //   })
+  //   .catch((error) => {
+  //     // Handle errors
+  //     console.error('Error:', error.message);
+  //   });
+    // processMod();
 }
 
 function processMod() {
@@ -85,7 +85,7 @@ function processAssignments(courseId: number) {
 }
 
 // Function to process quizzes for each course
-async function processQuizzes(courseId: number) {
+export async function processQuizzes(courseId: number) {
   try {
     // Make a GET request to the Canvas API to retrieve quizzes for the course
     await axios.get(`${coursesEndpoint}/${courseId}/quizzes`, { headers })
