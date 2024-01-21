@@ -5,7 +5,7 @@ export default function Form(props: { handleScrape: (arg0: string) => void; }) {
 
     return (
         <div>
-            <header className="flex flex-col items-center justify-center text-white">
+            <header className="flex flex-col items-center justify-center text-white text-2xl">
                 <p>Canvas Extension</p>
             </header>
 
