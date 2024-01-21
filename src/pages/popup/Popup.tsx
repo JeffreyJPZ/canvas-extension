@@ -6,7 +6,8 @@ export default function Popup() {
     // scrapes canvas page using key and retrieves results when scrape button is clicked
     async function scrape(key : string) {
         try {
-            await chrome.runtime.sendMessage({type: "scrape", data: key});
+            const response = await chrome.runtime.sendMessage({type: "scrape", data: key});
+            alert(response); // debugging
             // need to assign promise to response and send response to some page
         } catch (err) {
             console.log(err);
