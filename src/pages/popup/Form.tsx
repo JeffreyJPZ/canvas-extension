@@ -3,6 +3,8 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import createTheme from "@mui/system/createTheme";
+import TextField from '@mui/material/TextField';
+import './Form.css';
 
 const theme = createTheme({
     palette: {
@@ -29,9 +31,15 @@ export default function Form(props: { handleScrape: (arg0: string) => void; }) {
 
             <br></br>
 
-            <div className="flex flex-col bg-red-500 outline outline-1 outline-black">
+            {/* <div className="flex flex-col bg-red-500 outline outline-1 outline-black">
                 <input type="text" value={key} onChange={e => setKey(e.target.value)}/>
-            </div>
+            </div> */}
+
+            <TextField color="warning" fullWidth id="outlined-basic" label="Enter Key" variant="outlined" 
+            onChange={e => setKey(e.target.value)} margin="dense" style={{
+                borderColor: 'white', // Set the outline color to white
+                margin: '0 8px',      // Add left and right margins
+              }}/>
 
             <br></br>
 
