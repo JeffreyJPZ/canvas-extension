@@ -70,7 +70,7 @@ function init() {
 function processMod() {
   axios.get(`${pageEndpoint}/course-guide?module_item_id=5969053`, { headers })
     .then((response: AxiosResponse) => {
-      page = response.data;
+      page = response.data.body;
       console.log('Course Guide:', page); 
     })
 }
