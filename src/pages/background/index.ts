@@ -15,9 +15,10 @@ async function handleMessage(message: { data: string; }) {
 
     // check if active tab has an id
     if (typeof tab.id === "number") {
-
-        // send to content script
-
+        await chrome.scripting.executeScript({
+            target: {tabId: tab.id},
+            func: () => {console.log("hi")}
+        })
     }
 
     return message.data; // test value
