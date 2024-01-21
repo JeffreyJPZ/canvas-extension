@@ -1,6 +1,6 @@
 import Form from "@pages/popup/Form";
 import Logo from "@pages/popup/Logo";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainPage from '@pages/mainpage/MainPage'
 
 export default function Popup() {
@@ -23,13 +23,13 @@ export default function Popup() {
   return (
     <Router>
       <div className="absolute top-0 left-0 right-0 bottom-0 text-center h-full p-3 bg-gray-800">
-        <Switch>
+        <Routes>
         <Route path="/other-page" Component={MainPage}>
             <Logo />
             <br></br>
             <Form handleScrape={scrape} />
           </Route>
-        </Switch>
+        </Routes>
       </div>
     </Router>
   );
