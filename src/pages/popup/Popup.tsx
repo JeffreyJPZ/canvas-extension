@@ -1,7 +1,6 @@
 import Form from "@pages/popup/Form";
 import Logo from "@pages/popup/Logo";
 import { MemoryRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-// import { Switch } from 'react-router-dom';
 import MainPage from '@pages/mainpage/MainPage'
 import { useState } from "react";
 
@@ -92,3 +91,4 @@ export default function Popup() {
 //     </div>
 //   );
 // }
+
