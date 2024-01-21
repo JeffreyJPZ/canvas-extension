@@ -5,7 +5,6 @@ import '@assets/styles/tailwind.css';
 import Popup from '@pages/popup/Popup';
 import axios, { AxiosResponse } from 'axios';
 
-
 // Replace these values with your Canvas instance URL and access token
 const canvasBaseUrl = 'https://canvas.ubc.ca/';
 const accessToken = "11224~AXUKiw3a0KCRTHzKxBK6zPOC6BAjbzDHAtj6JAJIsPAHMdhFfMXCiIlux472KWpP";
@@ -14,6 +13,10 @@ const accessToken = "11224~AXUKiw3a0KCRTHzKxBK6zPOC6BAjbzDHAtj6JAJIsPAHMdhFfMXCi
 let courses: string;
 const coursesEndpoint = `${canvasBaseUrl}/api/v1/courses`;
 let courseArray: string[];
+
+// Canvas API endpoint for CPSC 221
+const pageEndpoint = `${coursesEndpoint}/123421/pages`;
+let page: string;
 
 // Set up headers with the Authorization token
 const headers = {
@@ -53,7 +56,7 @@ function init() {
       })
       console.log('Courses:', courseArray); 
       courseArray.forEach((course: any) => {
-        processAssignments(course.id);
+        //processAssignments(course.id);
       })
 
     })
@@ -61,7 +64,15 @@ function init() {
       // Handle errors
       console.error('Error:', error.message);
     });
-  
+    processMod();
+}
+
+function processMod() {
+  axios.get(`${pageEndpoint}/course-guide?module_item_id=5969053`, { headers })
+    .then((response: AxiosResponse) => {
+      page = response.data;
+      console.log('Course Guide:', page); 
+    })
 }
 
 function processAssignments(courseId: number) {
